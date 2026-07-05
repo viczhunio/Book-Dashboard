@@ -14,10 +14,10 @@ The following **required** functionality is completed:
   - The dashboard should display at least 10 unique items, one per row
   - The dashboard includes at least two features in each row
 - [x] **`useEffect` React hook and `async`/`await` are used**
-- [ ] **The app dashboard includes at least three summary statistics about the data** 
+- [x] **The app dashboard includes at least three summary statistics about the data** 
   - The app dashboard includes at least three summary statistics about the data, such as:
     - Total number of volumes in the collection 
-    - Newest publication among fetched books 
+    - Total number of unique Languages displayed in the catalog 
     - Oldest publication among fetched books 
 - [x] **A search bar allows the user to search for an item in the fetched data**
   - The search bar **correctly** filters items in the list, only displaying items matching the search query
