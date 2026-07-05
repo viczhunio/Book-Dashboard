@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300..900;1,300..900&family=DM+Mono:ital,wght@0,300;0,400;0,500;1,300;1,400;1,500&display=swap');
+
+.app-container {
+  background-color: #f4f1ea; 
+  min-height: 100vh;
+  display: flex; 
+  flex-direction: column;
+  font-family: 'Georgia', 'Times New Roman', Times, serif; 
+  /*color: #2b2d42; */
+  position: relative;
+  padding-bottom: 70px;
+  margin: 0; 
+}
+
+.app-header {
+  text-align: center;
+  padding: 30px 20px; 
+  background-color: #4a1521;
+  color: #e0c068;
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
+}
+
+.app-header h1 {
+  font-size: 2.5rem; 
+  margin: 0;
+  letter-spacing: 2px;
+  font-family: 'Fraunces', 'Georgia', serif; 
+}
+
+.app-header p {
+  margin: 10px 0 0 0; 
+  font-style: italic; 
+  opacity: 0.8;
+  color: #f4f1ea;
+}
+  
+.workspace-layout {
+  display: flex; 
+  flex: 1; 
+  padding: 40px; 
+  max-width: 1200px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.stats-sidebar {
+  width: 30%; 
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px; 
+  position: relative; 
+}
+
+.vintage-stamp {
+  position: absolute;
+  top: -20px;
+  left: 10px; 
+  font-size: 3rem; 
+  opacity: 0.25; 
+  color: #3d5a46; 
+  transform: rotate(-15deg);
+  pointer-events: none;
+}
+
+.stat-circle {
+  width: 130px; 
+  height: 130px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #012a4a;
+  color: #e0c068;
+  box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.2);
+  border: 2px dashed #e0c068;
+}
+
+.stat-circle .stat-value {
+  font-size: 1.8rem; 
+  font-weight: bold;
+  font-family: 'Fraunces', 'Georgia', serif;
+}
+
+.stat-circle .stat-label {
+  font-size: 0.75rem; 
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/*Right Card Column*/
+
+.catalog-drawer-card {
+  width: 70%; 
+  background-color: #FFFFFF; 
+  border-radius: 8px;
+  border: 1px solid #d8d4c7;
+  padding: 30px; 
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.controls-row {
+  display: flex; 
+  gap: 20px; 
+}
+
+.vintage-input {
+  flex: 1; 
+  padding: 12px; 
+  border-radius: 4px; 
+  border: 1px solid #d8d4c7;
+  background-color: #fafafa;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+}
+
+.vintage-input,
+.vintage-select {
+  color-scheme: light;
+  color: #2b2d42;
+}
+
+.vintage-select option {
+  color: #2b2d42;
+  background-color: #fafafa;
+}
+
+.vintage-select {
+  padding: 12px; 
+  border-radius: 4px; 
+  border: 1px solid #d8d4c7; 
+  background-color: #fafafa;
+  font-family: 'Georgia', 'Times New Roman', Times, serif;
+  cursor: pointer;
+}
+
+.manifest-feed h3 {
+  margin: 0 0 10px 0;
+  color: #4A1521;
+}
+
+.book-ledger-row {
+  padding: 15px;
+  background-color: #FDFCF7;      
+  border: 1px solid #EFECE4;
+  border-radius: 4px;
+  display: flex;
+  justify-content: space-between; 
+  align-items: center;
+}
+
+.book-title {
+  font-size: 1.1rem;
+  color: #1D2D44;                 
+}
+
+.book-author {
+  color: #666666;
+  margin-left: 10px;
+}
+
+.book-meta {
+  font-size: 0.9rem;
+  font-style: italic;
+  color: #3D5A46;  
+  font-family: 'DM Mono', monospace;               
+}
+
+.bottom-navbar {
+  position: fixed;                /* Locks it permanently to the viewport screen edges */
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background-color: #012a4a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0px -4px 10px rgba(0, 0, 0, 0.1);
+  z-index: 100;                   
+}
+
+.nav-links {
+  display: flex;
+  gap: 50px;
+  color: #F4F1EA;
+}
+
+.nav-links span {
+  cursor: pointer;
+}
+
+.nav-links .active-link {
+  border-bottom: 2px solid #E0C068; 
+  padding-bottom: 3px;
+  color: #E0C068;
+}
