@@ -1,4 +1,3 @@
-<img width="1160" height="915" alt="book-dash2" src="https://github.com/user-attachments/assets/b17ea095-f247-4204-b6c0-ddff66007113" />
 # Web Development Project 5 - *BookDash*
 
 Submitted by: **Victoria Zhunio**
@@ -43,8 +42,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-<img width="1160" height="915" alt="book-dash2" src="https://github.com/user-attachments/assets/35eff218-6730-40ec-afc7-d6d1a129168f" />
 
+<img width="1028" height="868" alt="book-dash1" src="https://github.com/user-attachments/assets/28637293-c384-4751-ba09-a7a2c33a6144" />
 
 <img src='https://i.imgur.com/T9gJ0ej.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> 
 
@@ -116,7 +115,7 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
-
+<img width="1160" height="915" alt="book-dash2" src="https://github.com/user-attachments/assets/35eff218-6730-40ec-afc7-d6d1a129168f" />
 <img src='https://i.imgur.com/TZe0gtx.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 <!-- Replace this with whatever GIF tool you used! -->
