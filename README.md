@@ -1,3 +1,4 @@
+<img width="1160" height="915" alt="book-dash2" src="https://github.com/user-attachments/assets/b17ea095-f247-4204-b6c0-ddff66007113" />
 # Web Development Project 5 - *BookDash*
 
 Submitted by: **Victoria Zhunio**
@@ -42,6 +43,8 @@ The following **additional** features are implemented:
 ## Video Walkthrough
 
 Here's a walkthrough of implemented user stories:
+<img width="1160" height="915" alt="book-dash2" src="https://github.com/user-attachments/assets/35eff218-6730-40ec-afc7-d6d1a129168f" />
+
 
 <img src='https://i.imgur.com/T9gJ0ej.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> 
 
