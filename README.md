@@ -43,9 +43,7 @@ The following **additional** features are implemented:
 
 Here's a walkthrough of implemented user stories:
 
-<img width="1160" height="915" alt="book-dash2" src="https://github.com/user-attachments/assets/11b641f9-5225-461c-a9ef-6b3f0ff91e1e" />
-
-<!--<img src='https://i.imgur.com/NzhIJSz.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> -->
+<img src='https://i.imgur.com/BygmoIZ.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' /> 
 
 <!-- Replace this with whatever GIF tool you used! -->
 GIF created with ScreenToGif and Imgur 
