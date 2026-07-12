@@ -127,8 +127,8 @@ GIF created with ScreenToGif and Imgur
 
 ## Notes
 
-Describe any challenges encountered while building the app.
-**API Payloads and Query Strictness:** Overcame an Open Library API limitation where crucial metadata (like circulation stats) was stripped by default by configuring a targeted &fields= query identifier string to explicitly request the missing data.
+Describe any challenges encountered while building the app.               
+* **API Payloads and Query Strictness:** Overcame an Open Library API limitation where crucial metadata (like circulation stats) was stripped by default by configuring a targeted &fields= query identifier string to explicitly request the missing data.
 * **Dynamic Language Translation Overrides:** Encountered issues formatting localized edition indices where open-source global entries returned generic cluster classifications like `roa` or undocumented code fallbacks (`und`).
 
 ## License
