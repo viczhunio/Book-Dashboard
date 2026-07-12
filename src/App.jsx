@@ -1,25 +1,12 @@
 import { useState, useEffect } from 'react'
+import { useRoutes } from 'react-router-dom'
 import './App.css'
+import Layout from './components/Layout';
+import DashboardHome from './routes/DashboardHome';
+import DetailView from './routes/DetailView';
+import About from './routes/About';
+import Insights from './routes/Insights'; 
 
-const languageNames = {
-  eng: 'English',
-  spa: 'Spanish',
-  fre: 'French',
-  ger: 'German',
-  pol: 'Polish',
-  jpn: 'Japanese',
-  ita: 'Italian',
-  rus: 'Russian',
-  chi: 'Chinese',
-  por: 'Portuguese',
-  dut: 'Dutch',
-  swe: 'Swedish',
-  ara: 'Arabic',
-  gre: 'Greek',
-  heb: 'Hebrew',
-  kor: 'Korean',
-  und: 'Unknown',
-};
 
 function App() {
   const [books, setBooks] = useState([]); 
@@ -33,18 +20,42 @@ function App() {
   useEffect(() => {
     async function fetchBooks() {
       try {
-        const response = await fetch ('https://openlibrary.org/search.json?q=book&limit=80'); 
+        const response = await fetch ('https://openlibrary.org/search.json?q=book&limit=80&fields=key,title,author_name,first_publish_year,language,cover_i,edition_count,want_to_read_count,already_read_count'); 
         const data = await response.json(); 
 
         const formattedBooks = (data.docs || [])
           .filter((book) => book.first_publish_year && book.title)
           .map((book) => {
+
+            const rawLang = book.language && book.language[0] ? book.language[0].toLowerCase() : 'und'; 
+            let cleanLang= 'Other'; 
+
+            if (rawLang !== 'und' && rawLang !== 'unknown') {
+              try { 
+                const languageDisplayer = new Intl.DisplayNames(['en'], {type: 'language' });
+                const translatedName = languageDisplayer.of(rawLang);
+
+                if (translatedName.toLowerCase() === rawLang) {
+                  cleanLang = rawLang === 'roa' ? 'Romance' : rawLang.toUpperCase(); 
+                } else {
+                  cleanLang = translatedName;
+                }
+              } catch (e) {
+                cleanLang = rawLang === 'roa' ? 'Romance' : rawLang.toUpperCase();
+              }
+            }
+
             return {
+              id: book.key ? book.key.replace("/works/", "") : Math.random().toString(), 
               title: book.title || 'Unknown Title',
               author: book.author_name ? book.author_name.join(', ') : 'Unknown Author',
               year: book.first_publish_year,   
-              language: book.language && book.language[0] ? 
-              (languageNames[book.language[0]] || book.language[0]) : 'Unknown',
+              language: cleanLang,
+              coverId: book.cover_i || null, 
+
+              editions: book.edition_count || 1, 
+              wantToRead: book.want_to_read_count || 0, 
+              alreadyRead: book.already_read_count || 0
             }
           })
 
@@ -76,11 +87,57 @@ function App() {
   const uniqueLanguages = new Set(books.map((book) => book.language)).size;
   const oldestYear = books.length ? Math.min(...books.map((book) => book.year)) : '-'; 
 
+  const availableLanguages = Array.from(new Set(books.map((book) => book.language)));
+
   if (loading) return <div className="app-container"><p style={{padding: '40px', textAlign: 'center'}}>Loading Library...</p></div>
   if (error) return <div className="app-container"><p style={{padding: '40px', textAlign: 'center'}}>{error}</p></div>
 
-  return (
-    <div className="app-container">
+
+  let element = useRoutes([
+    {
+      path: "/",
+      element: (
+        <Layout 
+          totalCount={totalCount}
+          uniqueLanguages={uniqueLanguages}
+          oldestYear={oldestYear}
+          activeTab={activeTab}
+          setActiveTab={setActiveTab}
+        />
+      ),
+      children: [
+        {
+          index: true, 
+          element: (
+            <DashboardHome 
+              filteredBooks={filteredBooks}
+              searchTerm={searchTerm}
+              setSearchTerm={setSearchTerm}
+              languageFilter={languageFilter}
+              setLanguageFilter={setLanguageFilter}
+              availableLanguages={availableLanguages}
+            />
+          )
+        }, 
+        {
+          path:"insights",
+          element: <Insights books={books} />
+        }, 
+        {
+          path: "book/:id",
+          element: <DetailView books={books} />
+        }, 
+        {
+          path: "about", 
+          element: <About />
+        }
+      ]
+    }
+  ]); 
+
+  return element; 
+  
+    /*<div className="app-container">
       <header className="app-header">
         <h1>📚 BookDash</h1>
         <p>Your library, at a glance</p>
@@ -121,29 +178,18 @@ function App() {
               onChange={(e) => setLanguageFilter(e.target.value)}
             >
               <option value="All">All Languages</option>
-              <option value="English">English</option>
-              <option value="Spanish">Spanish</option>
-              <option value="French">French</option>
-              <option value="German">German</option>
-              <option value="Polish">Polish</option>
-              <option value="Japanese">Japanese</option>
-              <option value="Italian">Italian</option>
-              <option value="Russian">Russian</option>
-              <option value="Chinese">Chinese</option>
-              <option value="Portuguese">Portuguese</option>
-              <option value="Dutch">Dutch</option>
-              <option value="Swedish">Swedish</option>
-              <option value="Arabic">Arabic</option>
-              <option value="Greek">Greek</option>
-              <option value="Hebrew">Hebrew</option>
-              <option value="Korean">Korean</option>
+              {availableLanguages.map((lang) => (
+                <option key={lang} value={lang}>
+                  {lang}
+                </option>
+              ))}
             </select>
           </div>
 
           <div className="manifest-feed">
             <h3>Browse Books:</h3>
-            {filteredBooks.map((book, index) => (
-              <div key={index} className="book-ledger-row">
+            {filteredBooks.map((book) => (
+              <div key={book.id} className="book-ledger-row">
                 <div>
                   <strong className="book-title">{book.title}</strong>
                   <span className="book-author"> by {book.author}</span>
@@ -181,7 +227,7 @@ function App() {
         </nav>
       </footer>
     </div>
-  )
+  )*/
 }
 
 export default App

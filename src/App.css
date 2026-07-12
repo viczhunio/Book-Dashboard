@@ -6,7 +6,7 @@
   display: flex; 
   flex-direction: column;
   font-family: 'Georgia', 'Times New Roman', Times, serif; 
-  /*color: #2b2d42; */
+  color: #2b2d42; 
   position: relative;
   padding-bottom: 70px;
   margin: 0; 
@@ -151,6 +151,15 @@
   display: flex;
   justify-content: space-between; 
   align-items: center;
+  cursor: pointer; 
+  transition: all 0.2s ease-in-out; 
+}
+
+.book-ledger-row:hover {
+  background-color: #f7f5ed;
+  border-color: #dfdbcf;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.08); 
 }
 
 .book-title {
